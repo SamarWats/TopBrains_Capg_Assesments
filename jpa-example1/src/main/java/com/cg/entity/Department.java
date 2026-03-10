@@ -1,0 +1,26 @@
+package com.cg.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="dept")
+public class Department {
+
+    @Id
+    private int deptno;
+
+    private String dname;
+    private String loc;
+
+    public int getDeptno() {
+        return deptno;
+    }
+
+    public String getDname() {
+        return dname;
+    }
+
+    public String getLoc() {
+        return loc;
+    }
+}

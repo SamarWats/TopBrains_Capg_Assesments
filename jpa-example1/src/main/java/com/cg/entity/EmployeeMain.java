@@ -1,0 +1,28 @@
+package com.cg.entity;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+public class EmployeeMain {
+
+    public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        PEmployee obj = new PEmployee();
+//        CEmployee obj = new CEmployee();
+        obj.setName("Samar");
+        obj.setDob(LocalDate.of(2001, 11, 02));
+        obj.setSalary(100000);
+//        obj.setPay_per_hour(95000);
+
+        em.persist(obj);
+
+        em.getTransaction().commit();
+
+        System.out.println("Created...");
+    }
+}
