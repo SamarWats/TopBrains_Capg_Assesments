@@ -1,0 +1,22 @@
+package com.cg.entity;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+import java.util.*;
+
+import jakarta.persistence.*;
+
+public class ProductMain {
+	public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+        EntityManager em = emf.createEntityManager();
+        
+//        TypedQuery<Product> q = em.createQuery("SELECT p FROM Product p", Product.class);
+        TypedQuery<String> q = em.createQuery("SELECT p FROM Product p", String.class);
+        
+        List<Product> li = q.getResultList();
+        li.forEach(p->System.out.println(p));
+	}
+}

@@ -1,0 +1,13 @@
+package Trainer3;
+
+import java.util.*;
+
+public class Emp {
+	public static void filterEmp(List<Emp> emps, Predj) {
+		for(Emp emp: emps) {
+			if(p.test(emp)) {
+				
+			}
+		}
+	}
+}

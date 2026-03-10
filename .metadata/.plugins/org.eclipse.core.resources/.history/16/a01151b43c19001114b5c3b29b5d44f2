@@ -1,0 +1,17 @@
+package com.cg.oneToone;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.*;
+
+public class PersonMain {
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager()
+		em.getTransaction().begin();
+		 
+		Person p =new Person(0, "Ankit", LocalDate.of(2001, 10, 12), null);
+		Dl obj = new Dl(LocalDate.of(2032, 10, 12), LocaDate.of(2012,10,12),'LMV,HMV');
+				
+	}
+}

@@ -1,0 +1,17 @@
+package com.cg.entity;
+
+public class DepartmentDTO {
+
+    private String department;
+    private Long ECount;
+
+    public DepartmentDTO(String department, Long ECount) {
+        this.department = department;
+        this.ECount = ECount;
+    }
+
+    @Override
+    public String toString() {
+        return department + " : " + ECount;
+    }
+}

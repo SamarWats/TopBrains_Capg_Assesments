@@ -1,0 +1,13 @@
+package com.cg.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "product_table")
+public class Product {
+	private int pid;
+	private String name;
+	private int qty;
+	private int price;
+}

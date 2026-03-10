@@ -1,0 +1,19 @@
+package com.cg.entity;
+
+import jakarta.persistence.Persistence;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManager;
+
+public class EmployeeMain {
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistance.xml");
+	EntityManager em = emf.createEntityManager();
+	em.getTransaction().begin();
+	PEmployee obj = new PEmployee();
+	obj.setName("Samar");
+	obj.setDob(LocalDate.of(2002,07,13));
+	obj.setSalary(95000);
+	em.persist(obj);
+	em.getTransaction().commit();
+	System.out.println("Created...");
+
+}

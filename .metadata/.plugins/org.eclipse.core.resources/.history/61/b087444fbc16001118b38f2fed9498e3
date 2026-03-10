@@ -1,0 +1,99 @@
+package com.cg.jdbc_assignment.pl;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.cg.jdbc_assignment.bean.Author;
+import com.cg.jdbc_assignment.service.AuthorService;
+import com.cg.jdbc_assignment.service.IAuthorService;
+
+public class MainClass {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        IAuthorService service = new AuthorService();
+
+        while (true) {
+
+            System.out.println("\n===== AUTHOR MANAGEMENT SYSTEM =====");
+            System.out.println("1. Add Author");
+            System.out.println("2. Find Author By ID");
+            System.out.println("3. Update Author Phone");
+            System.out.println("4. Delete Author");
+            System.out.println("5. Display All Authors");
+            System.out.println("6. Add Book");
+            System.out.print("Enter choice: ");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    sc.nextLine(); // consume newline
+
+                    System.out.print("First Name: ");
+                    String first = sc.nextLine();
+
+                    System.out.print("Middle Name: ");
+                    String middle = sc.nextLine();
+
+                    System.out.print("Last Name: ");
+                    String last = sc.nextLine();
+
+                    System.out.print("Phone No: ");
+                    String phone = sc.nextLine();
+
+                    Author author = new Author(first, middle, last, phone);
+
+                    System.out.println(service.addAuthor(author));
+                    break;
+
+                case 2:
+                    System.out.print("Enter Author ID: ");
+                    int id = sc.nextInt();
+
+                    Author a = service.findAuthor(id);
+
+                    if (a != null)
+                        System.out.println(a);
+                    else
+                        System.out.println("Author Not Found");
+                    break;
+
+                case 3:
+                    System.out.print("Enter Author ID: ");
+                    int uid = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Enter New Phone: ");
+                    String newPhone = sc.nextLine();
+
+                    System.out.println(service.updatePhone(uid, newPhone));
+                    break;
+
+                case 4:
+                    System.out.print("Enter Author ID: ");
+                    int did = sc.nextInt();
+
+                    System.out.println(service.removeAuthor(did));
+                    break;
+
+                case 5:
+                    List<Author> list = service.getAllAuthors();
+
+                    for (Author auth : list)
+                        System.out.println(auth);
+                    break;
+
+                case 6:
+                    System.out.println("Exiting...");
+                    sc.close();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid Choice");
+            }
+        }
+    }
+}

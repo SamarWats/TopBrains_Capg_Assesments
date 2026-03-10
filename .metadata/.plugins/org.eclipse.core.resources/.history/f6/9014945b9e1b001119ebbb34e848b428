@@ -1,0 +1,16 @@
+package com.cg.entity;
+
+import lombok.*;
+
+@Data
+public class DepartmentDTO {
+
+    private String department;
+    private String loc;
+    private int deptno;
+
+    @Override
+    public String toString() {
+        return department + " : " + ECount;
+    }
+}

@@ -1,0 +1,12 @@
+package com.labs;
+
+import java.util.stream.Collectors;
+
+public class EmployeeService {
+	public double sumOfSalary() {
+		double totalSal = EmployeeRepo.getEmployees().stream().map(e->e.getSalary()).collect(Collectors.summingDouble(e->e));
+		return totalSal;
+	}
+	
+	
+}

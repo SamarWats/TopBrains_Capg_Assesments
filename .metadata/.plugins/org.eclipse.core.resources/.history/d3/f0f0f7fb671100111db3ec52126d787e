@@ -1,0 +1,5 @@
+package Trainer3;
+
+public interface E2{
+	public String addGap(String a);
+}

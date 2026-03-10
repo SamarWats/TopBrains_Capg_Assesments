@@ -1,0 +1,8 @@
+package com.cg.entity;
+
+import lombok.*;
+
+@Data
+public class ProductDTO {
+	private int 
+}

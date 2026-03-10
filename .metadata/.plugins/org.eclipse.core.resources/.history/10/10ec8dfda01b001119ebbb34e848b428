@@ -1,0 +1,29 @@
+package com.cg.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+public class Employee {
+
+    @Id
+    @GeneratedValue
+    private int empid;
+
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name="deptno")
+    private Department dept;
+
+    public int getEmpid() {
+        return empid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Department getDept() {
+        return dept;
+    }
+}

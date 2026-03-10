@@ -1,0 +1,16 @@
+package com.labs;
+
+import java.util.*;
+
+public class EmployeeMain {
+	public static void main(String[] args) {
+		List<Employee> employee = EmployeeRepo.getEmployees();
+		List<Department> department = EmployeeRepo.getDepartments();
+		
+	    public double getTotalSalary() {
+	        return employees.stream().mapToDouble(Employee::getSalary).sum();
+	    }
+
+		
+	}
+}

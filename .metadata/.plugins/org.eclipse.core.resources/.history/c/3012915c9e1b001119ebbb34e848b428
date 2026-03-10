@@ -1,0 +1,17 @@
+package com.cg.entity;
+
+import lombok.*;
+import jakarta.persistence.*;
+@Data
+@Entity
+public class DepartmentDTO {
+
+    private String department;
+    private String loc;
+    private int deptno;
+
+    @Override
+    public String toString() {
+        return department + " : " + ECount;
+    }
+}

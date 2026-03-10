@@ -1,0 +1,74 @@
+package com.labs;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class EmployeeService {
+
+    private List<Employee> employees = EmployeeRepo.getEmployees();
+    private List<Department> departments = EmployeeRepo.getDepartments();
+
+    // 1️⃣ Sum of salary of all employees
+    public double getTotalSalary() {
+        return employees.stream()
+                .mapToDouble(Employee::getSalary)
+                .sum();
+    }
+
+    // 2️⃣ Department names and count of employees
+    public Map<String, Long> getEmployeeCountByDepartment() {
+        return employees.stream()
+                .filter(e -> e.getDepartment() != null)
+                .collect(Collectors.groupingBy(
+                        e -> e.getDepartment().getDepartmentName(),
+                        Collectors.counting()
+                ));
+    }
+
+    // 3️⃣ Senior most employee (earliest hire date)
+    public Optional<Employee> getSeniorMostEmployee() {
+        return employees.stream()
+                .min(Comparator.comparing(Employee::getHireDate));
+    }
+
+    // 4️⃣ Employee name and duration of service
+    public void getEmployeeServiceDuration() {
+        employees.stream()
+                .forEach(e -> {
+                    Period period = Period.between(e.getHireDate(), LocalDate.now());
+                    System.out.println(e.getFirstName() + " " + e.getLastName()
+                            + " -> " + period.getYears() + " years "
+                            + period.getMonths() + " months "
+                            + period.getDays() + " days");
+                });
+    }
+
+    // 5️⃣ Employees without department
+    public List<Employee> getEmployeesWithoutDepartment() {
+        return employees.stream()
+                .filter(e -> e.getDepartment() == null)
+                .collect(Collectors.toList());
+    }
+
+    // 6️⃣ Departments without employees
+    public List<Department> getDepartmentsWithoutEmployees() {
+        return departments.stream()
+                .filter(d -> employees.stream()
+                        .noneMatch(e -> e.getDepartment() != null &&
+                                e.getDepartment().getDepartmentId() == d.getDepartmentId()))
+                .collect(Collectors.toList());
+    }
+
+    // 7️⃣ Department with highest count of employees
+    public Optional<Map.Entry<String, Long>> getDepartmentWithHighestEmployees() {
+        return getEmployeeCountByDepartment()
+                .entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue());
+    }
+}

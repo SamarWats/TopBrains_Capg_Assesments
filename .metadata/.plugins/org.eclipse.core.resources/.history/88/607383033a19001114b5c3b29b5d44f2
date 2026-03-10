@@ -1,0 +1,10 @@
+package com.cg.oneToone;
+
+import java.time.LocalDate;
+
+public class Person {
+	private int pid;
+	private String name;
+	private LocalDate dob;
+	private Dl dl;
+}

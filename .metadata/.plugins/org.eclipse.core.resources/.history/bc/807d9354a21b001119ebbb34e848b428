@@ -1,0 +1,19 @@
+@Entity
+@Table(name="emp")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "Employee_type")
+public class Employee {
+
+    @Id
+    private int empid;
+
+    private String name;
+
+    private LocalDate dob;
+
+    @ManyToOne
+    @JoinColumn(name="deptno")
+    private Department dept;
+
+    // getters setters
+}

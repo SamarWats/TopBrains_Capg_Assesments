@@ -1,0 +1,41 @@
+package Trainer3;
+
+class Animal{
+	public void eat() {
+		System.out.println("Animal Class");
+	}
+}
+
+class Dog extends Animal{
+	public void eat() {
+		System.out.println("Dog Class");
+	}
+	
+	public void Bark() {
+		System.out.println("Dog Barks");
+	}
+}
+
+class Cat extends Animal{
+	public void eat() {
+		System.out.println("Cat Class");
+	}
+	
+	public void meow() {
+		System.out.println("Cat meow");
+	}
+}
+
+public class TestAnimal {
+	public static void main(String[] args) {
+//		Dog obj = new Dog();
+//		obj.eat();
+//		((Animal)obj).eat();
+//		
+		Animal arr[]= {new Animal(), new Dog(), new Cat()};
+		
+		for(Animal obj:arr) {
+			obj.eat();
+		}
+	}
+}

@@ -1,0 +1,13 @@
+package Trainer3;
+
+class Animal{
+	public void eat()
+{
+		}
+}
+
+public class TestAnimal {
+	public static void main(String[] args) {
+		
+	}
+}

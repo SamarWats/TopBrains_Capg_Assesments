@@ -1,0 +1,12 @@
+package com.cg.oneToone;
+
+import java.time.LocalDate;
+
+public class Dl {
+	private int DlNumber;
+	private LocalDate expDate;
+	private LocalDate issueDate;
+	private String type;
+	
+	
+}

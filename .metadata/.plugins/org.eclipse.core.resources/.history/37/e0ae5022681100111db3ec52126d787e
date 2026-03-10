@@ -1,0 +1,19 @@
+package Trainer3;
+import java.util.function.BiPredicate;
+
+public class E3{
+
+    public static void main(String[] args) {
+
+        String correctUsername = "admin";
+        String correctPassword = "12345";
+
+        BiPredicate<String, String> validate = 
+                (username, password) -> username.equals(correctUsername) && password.equals(correctPassword);
+
+        // Testing
+        System.out.println(validate.test("admin", "12345"));  // true
+        System.out.println(validate.test("admin", "11111"));  // false
+    }
+}
+

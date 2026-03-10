@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;InterestCalc.FD.java&apos; to &apos;FDAccount.java&apos;&#x0D;&#x0A;- Original project: &apos;InrerestCalculator&apos;&#x0D;&#x0A;- Original element: &apos;InterestCalc.FD.java&apos;&#x0D;&#x0A;- Renamed element: &apos;InterestCalc.FDAccount.java&apos;" description="Rename compilation unit &apos;FD.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;InterestCalc{FD.java" name="FDAccount.java" references="false" stamp="1772079482021" version="1.0"/>
+</session>

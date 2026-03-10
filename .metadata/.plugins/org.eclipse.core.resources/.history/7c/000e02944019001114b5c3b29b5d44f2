@@ -1,0 +1,79 @@
+package com.cg.oneToone;
+
+import java.time.LocalDate;
+import jakarta.persistence.*;
+
+public class PersonMain {
+
+    public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+        EntityManager em = emf.createEntityManager();
+
+// CREATE
+        em.getTransaction().begin();
+
+        Person p = new Person(0, "Ankit", LocalDate.of(2001, 10, 12), null);
+        Dl dl = new Dl(0, LocalDate.of(2032, 10, 12), LocalDate.of(2012, 10, 12), "LMV,HMV");
+
+        p.setDl(dl);
+
+        em.persist(p); // saves both Person and DL
+
+        em.getTransaction().commit();
+        System.out.println("Person Created...");
+
+
+        // ------------------ READ ------------------
+        Person person = em.find(Person.class, 1);
+
+        if (person != null) {
+            System.out.println("\nPerson Details:");
+            System.out.println("ID: " + person.getPid());
+            System.out.println("Name: " + person.getName());
+            System.out.println("DOB: " + person.getDob());
+
+            Dl d = person.getDl();
+            if (d != null) {
+                System.out.println("DL Type: " + d.getType());
+            }
+        }
+
+
+        // ------------------ UPDATE PERSON ------------------
+        em.getTransaction().begin();
+
+        Person updatePerson = em.find(Person.class, 1);
+        updatePerson.setName("Rahul");
+
+        em.getTransaction().commit();
+
+        System.out.println("Person Updated");
+
+
+        // ------------------ UPDATE DL ------------------
+        em.getTransaction().begin();
+
+        Person updateDlPerson = em.find(Person.class, 1);
+        updateDlPerson.getDl().setType("LMV, HMV, MCWG");
+
+        em.getTransaction().commit();
+
+        System.out.println("DL Updated");
+
+
+        // ------------------ DELETE PERSON + DL ------------------
+        em.getTransaction().begin();
+
+        Person deletePerson = em.find(Person.class, 1);
+        em.remove(deletePerson); // DL also deleted because of cascade
+
+        em.getTransaction().commit();
+
+        System.out.println("Person and DL Deleted");
+
+
+        em.close();
+        emf.close();
+    }
+}

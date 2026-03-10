@@ -1,0 +1,7 @@
+package com.cg.oneToone;
+
+import jakarta.persistence.*;
+
+public class PersonMain {
+
+}

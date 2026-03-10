@@ -1,0 +1,25 @@
+package Trainer3;
+
+class Animal{
+	public void eat() {
+		System.out.println("Animal Class");
+	}
+}
+
+class Dog extends Animal{
+	public void eat() {
+		System.out.println("Dog Class");
+	}
+	
+	public void Bark() {
+		System.out.println("Dog Barks");
+	}
+}
+
+public class TestAnimal {
+	public static void main(String[] args) {
+		Dog obj = new Dog();
+		obj.eat();
+		((Animal)obj).eat();
+	}
+}

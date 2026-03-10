@@ -1,0 +1,13 @@
+package Trainer3;
+
+public class E2 {
+
+    public static void main(String[] args) {
+
+        // Lambda implementation of E6
+        E2 formatter = str -> String.join(" ", str.split(""));
+
+        System.out.println(formatter.format("CG"));
+        System.out.println(formatter.format("HELLO"));
+    }
+}

@@ -1,0 +1,11 @@
+package com.cg.entity;
+
+import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+
+public class CriteriaDemo {
+	public static void main(String[] args) {
+		
+	}
+}

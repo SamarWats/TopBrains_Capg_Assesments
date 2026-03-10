@@ -1,0 +1,16 @@
+package com.cg.entity;
+
+import lombok.*;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="dept")
+@Data
+@NoArgsConstructor
+public class DepartmentDTO {
+	
+	private int deptno;
+    private String department;
+    private String loc;
+
+}

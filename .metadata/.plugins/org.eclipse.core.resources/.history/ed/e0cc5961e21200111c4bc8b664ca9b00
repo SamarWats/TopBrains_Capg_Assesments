@@ -1,0 +1,11 @@
+package com.labs;
+
+import java.util.*;
+
+public class EmployeeMain {
+	public static void main(String[] args) {
+		List<Employee> li = EmployeeRepo.getEmployees();
+		List<Employee> li1 = EmployeeRepo.getDepartments();
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.cg.jdbc_assignment.dao;
+
+public class BookDao {
+
+}

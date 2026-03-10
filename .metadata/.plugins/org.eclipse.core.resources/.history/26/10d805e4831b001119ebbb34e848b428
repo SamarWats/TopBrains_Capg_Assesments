@@ -1,0 +1,42 @@
+package com.cg.entity;
+
+import java.util.*;
+
+import jakarta.persistence.*;
+
+public class ProductMain {
+	public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+        EntityManager em = emf.createEntityManager();
+        
+//        TypedQuery<Product> q = em.createQuery("SELECT p FROM Product p", Product.class);
+//        TypedQuery<String> q = em.createQuery("SELECT p.name, p.qty, p.price FROM Product p", String.class);
+        
+//        List<Product> li = q.getResultList();
+//        List<String> li = q.getResultList();
+        
+//        li.forEach(p->System.out.println(p));
+//        li.forEach(System.out::println);
+
+//        TypedQuery<Object[]> q = em.createQuery("SELECT p.name, p.qty, p.price FROM Product p", Object[].class);
+
+//        TypedQuery<String> q = em.createQuery("SELECT p.name, p.qty, p.price FROM Product p", String.class);
+//
+//        List<String> li = q.getResultList();
+//        li.forEach(p->System.out.println(p));
+
+//        for(Object[] row : li){
+//            System.out.println(row[0] + " " + row[1] + " " + row[2]);
+//        }
+        
+//        li.forEach(p->System.out.println(p[0] + " " + p[1] + " " + p[2]));
+
+        TypedQuery<ProductDTO> q = em.createQuery(
+                "SELECT new com.cg.entity.ProductDTO(p.name, p.qty, p.price) FROM Product p",
+                ProductDTO.class
+        );
+
+        List<ProductDTO> li = q.getResultList();
+        li.forEach(System.out::println);
+	}
+}

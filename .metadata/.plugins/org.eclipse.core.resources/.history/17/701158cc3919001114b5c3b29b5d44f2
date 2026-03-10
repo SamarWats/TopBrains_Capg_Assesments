@@ -1,0 +1,37 @@
+package com.cg.oneToone;
+
+import java.time.LocalDate;
+
+public class Dl {
+	private int DlNumber;
+	private LocalDate expDate;
+	private LocalDate issueDate;
+	private String type;
+
+	public int getDlNumber() {
+		return DlNumber;
+	}
+	public void setDlNumber(int dlNumber) {
+		DlNumber = dlNumber;
+	}
+	public LocalDate getExpDate() {
+		return expDate;
+	}
+	public void setExpDate(LocalDate expDate) {
+		this.expDate = expDate;
+	}
+	public LocalDate getIssueDate() {
+		return issueDate;
+	}
+	public void setIssueDate(LocalDate issueDate) {
+		this.issueDate = issueDate;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	
+}

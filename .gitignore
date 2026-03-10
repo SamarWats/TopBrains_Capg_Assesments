@@ -10,4 +10,4 @@ target/
 *.class
 
 # Logs
-*.log
+*.log.metadata/

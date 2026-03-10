@@ -1,0 +1,11 @@
+package com.cg.oneToone;
+
+import jakarta.persistence.*;
+
+public class PersonMain {
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManagerFactory em = emf.createEntityManager()
+				
+	}
+}

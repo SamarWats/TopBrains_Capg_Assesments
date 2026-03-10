@@ -1,0 +1,51 @@
+package com.cg.oneToone;
+
+import java.time.LocalDate;
+import jakarta.persistence.*;
+
+@Entity
+public class Person {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int pid;
+
+    private String name;
+    private LocalDate dob;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Dl dl;
+
+    public Person() {}
+
+    public Person(int pid, String name, LocalDate dob, Dl dl) {
+        this.name = name;
+        this.dob = dob;
+        this.dl = dl;
+    }
+	
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public LocalDate getDob() {
+		return dob;
+	}
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+	public Dl getDl() {
+		return dl;
+	}
+	public void setDl(Dl dl) {
+		this.dl = dl;
+	}
+}

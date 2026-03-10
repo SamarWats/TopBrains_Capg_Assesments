@@ -1,0 +1,5 @@
+package com.cg.entity;
+
+public class CEmployee extends Employee {
+	private double pay_per_hour;
+}

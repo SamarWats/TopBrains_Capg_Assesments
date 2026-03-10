@@ -1,0 +1,28 @@
+package com.cg.oneToone;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.*;
+
+public class PersonMain {
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		 
+		Person p =new Person(0, "Ankit", LocalDate.of(2001, 10, 12), null);
+		Dl obj = new Dl(0, LocalDate.of(2032, 10, 12), LocalDate.of(2012,10,12),"LMV,HMV");
+		p.setDl(obj);
+		em.persist(p); // saves both person and dl
+		em.getTransaction().commit();
+		System.out.println("Person Created...");
+				
+		
+		em.getTransaction().begin();
+
+		Person p = em.find(Person.class, 1);
+		p.setName("Rahul");
+
+		em.getTransaction().commit();
+	}
+}
